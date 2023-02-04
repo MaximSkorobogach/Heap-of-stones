@@ -148,7 +148,7 @@ namespace Heap_of_stones
 			{
 				if (options[i].FirstHeap + options[i].SecondHeap > WinCount)
 				{
-					Console.WriteLine("Компьютер нашел выигрышный ход");
+					Console.WriteLine(Environment.NewLine + $"{computer.Name} нашел выигрышный ход");
 					Console.WriteLine("Возможные ходы компьютера: ");
 
 					for (int j = 0; j < options.Length; j++)
@@ -194,6 +194,8 @@ namespace Heap_of_stones
 			{
 				Console.Write($"({options[j].FirstHeap},{options[j].SecondHeap}) ");
 			}
+
+			Console.WriteLine();
 
 			if (bestMove == null)
 			{
