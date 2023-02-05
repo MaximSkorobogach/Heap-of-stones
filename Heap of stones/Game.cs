@@ -56,7 +56,8 @@ namespace Heap_of_stones
 								 $"вместе: {Stones.FirstHeap + Stones.SecondHeap}, " +
 								 $"ходов: {MoveCount}, " +
 								 $"текущий ход у игрока: {player.Name}, " +
-								 $"наибольшее кол-во ходов может быть: {WinCount - ( Stones.FirstHeap + Stones.SecondHeap )}");
+								 $"наибольшее кол-во ходов может быть: {WinCount - ( Stones.FirstHeap + Stones.SecondHeap )}" +
+			                     Environment.NewLine);
 		/// <summary>
 		/// Метод запускающий игру
 		/// </summary>
@@ -148,15 +149,11 @@ namespace Heap_of_stones
 			{
 				if (options[i].FirstHeap + options[i].SecondHeap > WinCount)
 				{
-					Console.WriteLine(Environment.NewLine + $"{computer.Name} нашел выигрышный ход");
-					Console.WriteLine("Возможные ходы компьютера: ");
+					Console.WriteLine($"{computer.Name} нашел выигрышный ход");
+					
+					PrintMoves(computer, options);
 
-					for (int j = 0; j < options.Length; j++)
-					{
-						Console.Write($"({options[j].FirstHeap},{options[j].SecondHeap}) ");
-					}
-
-					Console.WriteLine($"Компьютер выбрал ход: ({options[i].FirstHeap},{options[i].SecondHeap})");
+					Console.WriteLine($"{computer.Name} выбрал ход: ({options[i].FirstHeap},{options[i].SecondHeap})");
 
 					return options[i];
 				}
@@ -188,18 +185,13 @@ namespace Heap_of_stones
 				}
 			}
 
-			Console.WriteLine($"Возможные ходы {computer.Name}: ");
-
-			for (int j = 0; j < options.Length; j++)
-			{
-				Console.Write($"({options[j].FirstHeap},{options[j].SecondHeap}) ");
-			}
+			PrintMoves(computer, options);
 
 			Console.WriteLine();
 
 			if (bestMove == null)
 			{
-				Console.WriteLine(Environment.NewLine + $"{computer.Name} понял, что следующий ход проигрышный при любом варианте, поэтому ходит наименьшим ходом");
+				Console.WriteLine($"{computer.Name} понял, что следующий ход проигрышный при любом варианте, поэтому ходит наименьшим ходом");
 
 				HeapStone minMove = options[0];
 
@@ -210,7 +202,9 @@ namespace Heap_of_stones
 						minMove = options[i];
 					}
 				}
-				
+
+				Console.WriteLine($"{computer.Name} выбрал ход: ({minMove.FirstHeap},{minMove.SecondHeap})");
+
 				return minMove;
 			}
 
@@ -218,6 +212,21 @@ namespace Heap_of_stones
 
 			return bestMove;
 		}
+		/// <summary>
+		/// Напечатать возможные ходы
+		/// </summary>
+		/// <param name="computer">Класс игрока, который ходит</param>
+		/// <param name="options">Возможные ходы</param>
+		private static void PrintMoves(Computer computer, HeapStone[] options)
+		{
+			Console.WriteLine($"Возможные ходы {computer.Name}: ");
+
+			for (int j = 0; j < options.Length; j++)
+			{
+				Console.Write($"({options[j].FirstHeap},{options[j].SecondHeap}) ");
+			}
+		}
+
 		/// <summary>
 		/// Метод описывающий ход игрока.
 		/// </summary>
