@@ -37,7 +37,7 @@ namespace Heap_of_stones.Interfaces
 		/// <param name="option">Выбранная опция (умножение на 2 или прибавление на 1)</param>
 		/// <returns>Новая куча камней</returns>
 		/// <exception cref="NotImplementedException">Выбрана неверная опция</exception>
-		public HeapStone Move(HeapStone stones, PositionHeap position, PlayerOption option) => option switch
+		public static HeapStone Move(HeapStone stones, PositionHeap position, PlayerOption option) => option switch
 		{
 			PlayerOption.Doubling => OptionDoubling(stones, position),
 			PlayerOption.Additions => OptionAdditions(stones, position),
@@ -50,7 +50,7 @@ namespace Heap_of_stones.Interfaces
 		/// <param name="position">Выбранная позиция в куче</param>
 		/// <returns>Новое кол во камней</returns>
 		/// <exception cref="NotImplementedException">Выбранная неверная позиция</exception>
-		private HeapStone OptionDoubling(HeapStone stones, PositionHeap position) => position switch
+		private static HeapStone OptionDoubling(HeapStone stones, PositionHeap position) => position switch
 		{
 			PositionHeap.FirstHeap => new HeapStone(stones.FirstHeap * 2, stones.SecondHeap),
 			PositionHeap.SecondHeap => new HeapStone(stones.FirstHeap, stones.SecondHeap * 2),
@@ -63,7 +63,7 @@ namespace Heap_of_stones.Interfaces
 	    /// <param name="position">Выбранная позиция в куче</param>
 	    /// <returns>Новое кол во камней</returns>
 	    /// <exception cref="NotImplementedException">Выбранная неверная позиция</exception>
-		private HeapStone OptionAdditions(HeapStone stones, PositionHeap position) => position switch
+		private static HeapStone OptionAdditions(HeapStone stones, PositionHeap position) => position switch
 		{
 			PositionHeap.FirstHeap => new HeapStone(stones.FirstHeap + 1, stones.SecondHeap),
 			PositionHeap.SecondHeap => new HeapStone(stones.FirstHeap, stones.SecondHeap + 1),

@@ -126,10 +126,10 @@ namespace Heap_of_stones
 			HeapStone[] options = new HeapStone[4];
 			HeapStone newStones = new HeapStone(stones.FirstHeap, stones.SecondHeap);
 
-			options[0] = computer.Move(newStones, PositionHeap.FirstHeap, PlayerOption.Additions);
-			options[1] = computer.Move(newStones, PositionHeap.SecondHeap, PlayerOption.Doubling);
-			options[2] = computer.Move(newStones, PositionHeap.FirstHeap, PlayerOption.Doubling);
-			options[3] = computer.Move(newStones, PositionHeap.SecondHeap, PlayerOption.Additions);
+			options[0] = Player.Move(newStones, PositionHeap.FirstHeap, PlayerOption.Additions);
+			options[1] = Player.Move(newStones, PositionHeap.SecondHeap, PlayerOption.Doubling);
+			options[2] = Player.Move(newStones, PositionHeap.FirstHeap, PlayerOption.Doubling);
+			options[3] = Player.Move(newStones, PositionHeap.SecondHeap, PlayerOption.Additions);
 
 			HeapStone[][] nextMoves = new HeapStone[4][];
 
@@ -226,7 +226,6 @@ namespace Heap_of_stones
 				Console.Write($"({options[j].FirstHeap},{options[j].SecondHeap}) ");
 			}
 		}
-
 		/// <summary>
 		/// Метод описывающий ход игрока.
 		/// </summary>
@@ -243,7 +242,7 @@ namespace Heap_of_stones
 
 			PlayerOption option = (PlayerOption)CheckAnswer();
 
-			return human.Move(stones, position, option);
+			return Player.Move(stones, position, option);
 		}
 		/// <summary>
 		/// Вспомогательный метод для проверки ответа игрока.
