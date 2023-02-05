@@ -29,7 +29,7 @@ namespace Heap_of_stones
 			}
 
 			// Входные данные ограничены Min и Max (1 и 74 соответственно) 
-			if (( stones[0] < Min || stones[0] > Max ) || ( stones[1] < Min || stones[1] > Max ))
+			if (( stones[0] <= Min || stones[0] >= Max ) || ( stones[1] <= Min || stones[1] >= Max ))
 			{
 				Console.WriteLine("1 <= S1, S2 <= 74");
 				Environment.Exit(0);
