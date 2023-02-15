@@ -11,11 +11,11 @@ namespace Heap_of_stones.Models
 	/// <summary>
 	/// Класс определяющий логику компьютера
 	/// </summary>
-    internal class Computer : Player
-    {
-	    // Наследуется от абстрактного класса Player, наследует все методы (доп логика не требуется)
-	    public Computer(string name) : base(name)
-	    {
-	    }
-    }
+	class Computer : Player
+	{
+		// Наследуется от абстрактного класса Player, наследует все методы (доп логика не требуется)
+		public Computer(string name) : base(name)
+		{
+		}
+	}
 }

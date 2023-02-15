@@ -137,10 +137,10 @@ namespace Heap_of_stones
 			{
 				nextMoves[i] = new HeapStone[4];
 
-				nextMoves[i][0] = computer.Move(options[i], PositionHeap.FirstHeap, PlayerOption.Additions);
-				nextMoves[i][1] = computer.Move(options[i], PositionHeap.SecondHeap, PlayerOption.Doubling);
-				nextMoves[i][2] = computer.Move(options[i], PositionHeap.FirstHeap, PlayerOption.Doubling);
-				nextMoves[i][3] = computer.Move(options[i], PositionHeap.SecondHeap, PlayerOption.Additions);
+				nextMoves[i][0] = Player.Move(options[i], PositionHeap.FirstHeap, PlayerOption.Additions);
+				nextMoves[i][1] = Player.Move(options[i], PositionHeap.SecondHeap, PlayerOption.Doubling);
+				nextMoves[i][2] = Player.Move(options[i], PositionHeap.FirstHeap, PlayerOption.Doubling);
+				nextMoves[i][3] = Player.Move(options[i], PositionHeap.SecondHeap, PlayerOption.Additions);
 			}
 
 			HeapStone bestMove = null;
